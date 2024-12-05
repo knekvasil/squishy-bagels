@@ -1,0 +1,83 @@
+# Configuration for Snake Game Dataset
+data:
+  dataset: SNAKE
+  train_path: "../datasets/snake/videos"
+  validation_path: "../datasets/snake/videos"
+  image_size: 256
+  channels: 3
+  num_frames: 16
+  num_frames_cond: 1
+  prob_mask_cond: 0.0
+  num_workers: 4
+  random_flip: false
+  uniform_dequantization: false
+  gaussian_dequantization: false
+  rescaled: true
+
+model:
+  depth: deep
+  version: DDPM
+  gamma: false
+  arch: unetmore
+  # type: unet
+  type: v1
+  num_classes: 3
+  time_conditional: true
+  dropout: 0.1
+  sigma_dist: linear
+  sigma_begin: 0.02
+  sigma_end: 0.0001
+  ema: true
+  ema_rate: 0.999
+  spec_norm: false
+  normalization: InstanceNorm++
+  nonlinearity: swish
+  ngf: 32
+  ch_mult:
+    - 1
+    - 2
+    - 2
+    - 2
+  num_res_blocks: 1
+  attn_resolutions:
+    - 8
+    - 16
+    - 32
+  n_head_channels: 64
+  conditional: true
+  noise_in_cond: false
+  output_all_frames: false
+  cond_emb: false
+  spade: false
+  spade_dim: 128
+
+training:
+  batch_size: 4
+  learning_rate: 1e-4
+  n_epochs: 100
+  gpu_ids: [0]
+  log_all_sigmas: false
+
+diffusion:
+  noise_schedule: linear
+  timesteps: 1000
+
+sampling:
+  subsample: 1
+  clip_denoised: true
+  method: ddpm
+
+fast_fid:
+  enabled: false
+  num_samples: 50
+  batch_size: 64
+
+optim:
+  weight_decay: 0.0
+  optimizer: "Adam"
+  lr: 0.0002
+  warmup: 1000
+  beta1: 0.9
+  amsgrad: false
+  eps: 1e-08
+  grad_clip: 1.0

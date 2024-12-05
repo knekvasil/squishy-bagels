@@ -1,0 +1,33 @@
+ckpt: null
+command: python main.py --config configs/snake.yaml --data_path datasets/snake/videos
+  --exp ../output
+comment: ''
+config: configs/snake.yaml
+config_mod: []
+data_path: datasets/snake/videos
+end_ckpt: null
+exp: ../output
+fast_fid: false
+feats_dir: /Users/kaljunekvasil/Developer/knekvasil/squishy-bagels/mcvd-pytorch/datasets
+fid_batch_size: 1000
+fid_num_samples: null
+final_only: null
+freq: null
+image_folder: images
+interact: false
+log_path: ../output/logs
+ni: false
+no_ema: false
+no_pr: false
+pr_nn_k: null
+resume_training: false
+sample: false
+seed: 1234
+start_at: 0
+stats_dir: /Users/kaljunekvasil/Developer/knekvasil/squishy-bagels/mcvd-pytorch/datasets
+stats_download: false
+subsample: null
+test: false
+verbose: info
+video_folder: videos
+video_gen: false

@@ -1,0 +1,61 @@
+INFO - main.py - 2024-12-06 01:27:29,860 - Using device: cpu
+INFO - main.py - 2024-12-06 01:27:29,861 - Namespace(config='configs/snake.yaml', data_path='datasets/snake/videos', seed=1234, exp='../output', comment='', verbose='info', resume_training=False, test=False, feats_dir='/Users/kaljunekvasil/Developer/knekvasil/squishy-bagels/mcvd-pytorch/datasets', stats_dir='/Users/kaljunekvasil/Developer/knekvasil/squishy-bagels/mcvd-pytorch/datasets', stats_download=False, fast_fid=False, fid_batch_size=1000, no_pr=False, fid_num_samples=None, pr_nn_k=None, sample=False, image_folder='images', final_only=None, end_ckpt=None, freq=None, no_ema=False, ni=False, interact=False, video_gen=False, video_folder='videos', subsample=None, ckpt=None, config_mod=[], start_at=0, command='python main.py --config configs/snake.yaml --data_path datasets/snake/videos --exp ../output', log_path='../output/logs')
+INFO - main.py - 2024-12-06 01:27:29,861 - Writing log file to ../output/logs
+INFO - main.py - 2024-12-06 01:27:29,861 - Exp instance id = 46046
+INFO - main.py - 2024-12-06 01:27:29,861 - Exp comment = 
+INFO - main.py - 2024-12-06 01:27:29,861 - Config =
+INFO - main.py - 2024-12-06 01:27:29,863 - Args =
+INFO - ncsn_runner.py - 2024-12-06 01:27:30,246 - Number of parameters: 2345744
+INFO - ncsn_runner.py - 2024-12-06 01:27:30,246 - Number of trainable parameters: 2345744
+INFO - ncsn_runner.py - 2024-12-06 01:27:30,252 - Running on CPU!
+ERROR - main.py - 2024-12-06 01:27:40,663 - Traceback (most recent call last):
+  File "/Users/kaljunekvasil/Developer/knekvasil/squishy-bagels/mcvd-pytorch/main.py", line 404, in main
+    runner.train()
+  File "/Users/kaljunekvasil/Developer/knekvasil/squishy-bagels/mcvd-pytorch/runners/ncsn_runner.py", line 508, in train
+    loss = anneal_dsm_score_estimation(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kaljunekvasil/Developer/knekvasil/squishy-bagels/mcvd-pytorch/losses/dsm.py", line 47, in anneal_dsm_score_estimation
+    loss = pow_((z - scorenet(perturbed_x, labels, cond_mask=cond_mask)).reshape(len(x), -1)).sum(dim=-1)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kaljunekvasil/.pyenv/versions/ml-bulk/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kaljunekvasil/.pyenv/versions/ml-bulk/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kaljunekvasil/.pyenv/versions/ml-bulk/lib/python3.12/site-packages/torch/nn/parallel/data_parallel.py", line 173, in forward
+    return self.module(*inputs, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kaljunekvasil/.pyenv/versions/ml-bulk/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kaljunekvasil/.pyenv/versions/ml-bulk/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kaljunekvasil/Developer/knekvasil/squishy-bagels/mcvd-pytorch/models/better/ncsnpp_more.py", line 770, in forward
+    return self.unet(x, y, cond, cond_mask=cond_mask)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kaljunekvasil/.pyenv/versions/ml-bulk/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kaljunekvasil/.pyenv/versions/ml-bulk/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kaljunekvasil/Developer/knekvasil/squishy-bagels/mcvd-pytorch/models/better/ncsnpp_more.py", line 294, in forward
+    hs = [modules[m_idx](x)]
+          ^^^^^^^^^^^^^^^^^
+  File "/Users/kaljunekvasil/.pyenv/versions/ml-bulk/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kaljunekvasil/.pyenv/versions/ml-bulk/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kaljunekvasil/.pyenv/versions/ml-bulk/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 554, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kaljunekvasil/.pyenv/versions/ml-bulk/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 549, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+RuntimeError: Given groups=1, weight of size [32, 51, 3, 3], expected input[4, 48, 256, 256] to have 51 channels, but got 48 channels instead
+
+INFO - main.py - 2024-12-06 01:27:43,283 - 2024-12-06 01:27:43

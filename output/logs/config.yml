@@ -1,0 +1,77 @@
+data:
+  channels: 3
+  dataset: SNAKE
+  gaussian_dequantization: false
+  image_size: 256
+  num_frames: 16
+  num_frames_cond: 1
+  num_workers: 4
+  prob_mask_cond: 0.0
+  random_flip: false
+  rescaled: true
+  train_path: ../datasets/snake/videos
+  uniform_dequantization: false
+  validation_path: ../datasets/snake/videos
+diffusion:
+  noise_schedule: linear
+  timesteps: 1000
+fast_fid:
+  batch_size: 1000
+  enabled: false
+  num_samples: 50
+  pr_nn_k: 3
+model:
+  arch: unetmore
+  attn_resolutions:
+  - 8
+  - 16
+  - 32
+  ch_mult:
+  - 1
+  - 2
+  - 2
+  - 2
+  cond_emb: false
+  conditional: true
+  depth: deep
+  dropout: 0.1
+  ema: true
+  ema_rate: 0.999
+  gamma: false
+  n_head_channels: 64
+  ngf: 32
+  noise_in_cond: false
+  nonlinearity: swish
+  normalization: InstanceNorm++
+  num_classes: 3
+  num_res_blocks: 1
+  output_all_frames: false
+  sigma_begin: 0.02
+  sigma_dist: linear
+  sigma_end: 0.0001
+  spade: false
+  spade_dim: 128
+  spec_norm: false
+  time_conditional: true
+  type: v1
+  version: DDPM
+optim:
+  amsgrad: false
+  beta1: 0.9
+  eps: 1e-08
+  grad_clip: 1.0
+  lr: 0.0002
+  optimizer: Adam
+  warmup: 1000
+  weight_decay: 0.0
+sampling:
+  clip_denoised: true
+  method: ddpm
+  subsample: 1
+training:
+  batch_size: 4
+  gpu_ids:
+  - 0
+  learning_rate: 1e-4
+  log_all_sigmas: false
+  n_epochs: 100
