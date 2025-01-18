@@ -1,0 +1,19 @@
+q_agent:
+  max_memory: 100000
+  batch_size: 1000
+  lr: 1.0e-3
+  hidden_state: 256
+  value_for_end_game:
+    __type__: q_agent.ValueForEndGame
+    value: "last_action"
+  iterations: 80000
+  min_deaths_to_record: 60
+
+env: 
+  __type__: game.snake.env.GameEnvironment
+  game:
+    __type__: game.snake.game.SnakeGame
+    width: 64
+    height: 64
+    speed: 240
+    block_size: 5

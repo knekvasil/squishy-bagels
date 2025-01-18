@@ -1,0 +1,6 @@
+1. Idea: snake game without engine and only with transformers
+2. Hot it works: write snake core game, write Neural Network that can play it, train it with RL
+3. During the training and playing, store history of key inputs, screenshots that will be used as context for the next screenshot
+4. Then train diffusion model to generate screenshot base on history of key inputs and screenshots
+5. Use this model to generate new screenshots based on the previous screenshot and key inputs
+6. We measure LPIPS (Zhang et al., 2018) and PSNR (Wang et al., 2004) between the original and generated screenshots to evaluate the quality of the generated screenshots

@@ -1,0 +1,10 @@
+click
+torch
+torchvision
+matplotlib
+einops
+PyYAML
+pygame
+numpy
+tqdm
+ipywidgets
